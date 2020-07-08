@@ -36,13 +36,15 @@ FN:
 */
 tuya_ble_status_t tuya_ble_gap_addr_get(tuya_ble_gap_addr_t *p_addr)
 {
-    suble_gap_get_bt_mac((void*)p_addr, SUBLE_BT_MAC_LEN);
+    p_addr->addr_type = TUYA_BLE_ADDRESS_TYPE_PUBLIC;
+    suble_gap_get_bt_mac(p_addr->addr, SUBLE_BT_MAC_LEN);
     return TUYA_BLE_SUCCESS;
 }
 
 tuya_ble_status_t tuya_ble_gap_addr_set(tuya_ble_gap_addr_t *p_addr)
 {
-    suble_gap_set_bt_mac((void*)p_addr);
+    p_addr->addr_type = TUYA_BLE_ADDRESS_TYPE_PUBLIC;
+    suble_gap_set_bt_mac(p_addr->addr);
     return TUYA_BLE_SUCCESS;
 }
 

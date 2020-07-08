@@ -1,5 +1,3 @@
-[中文版](https://github.com/suding-china/Tuya_ble_sdk_demo_project_bk3431q_ms) | [English](https://github.com/suding-china/Tuya_ble_sdk_demo_project_bk3431q_ms/blob/master/readme-en.md)
-
 
 ## 1 文件说明
 ble_3435_sdk_ext_39_0F0E —— 官方sdk（Beken，上海博通，bk3431q和bk3435内核一样，所以sdk也一样）  
