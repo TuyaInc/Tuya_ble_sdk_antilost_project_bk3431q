@@ -46,6 +46,7 @@ extern "C"
 #include "pwm.h"
 #include "adc.h"
 #include "rtc.h"
+#include "wdt.h"
 #include "rf.h"
 //cpt
 #include "elog.h"
@@ -327,7 +328,7 @@ void suble_gpio_init(void);
 void suble_gpio_led_on(uint8_t pin);
 void suble_gpio_led_off(uint8_t pin);
 void suble_gpio_led_reverse(uint8_t pin);
-void suble_gpio_rled_blink(uint32_t count);
+void suble_gpio_rled_blink(uint32_t count, uint32_t ms);
 void suble_gpio_rled_blink_cancel(void);
 void suble_gpio_buzzer_hold(void);
 void suble_gpio_buzzer_hold_cancel(void);

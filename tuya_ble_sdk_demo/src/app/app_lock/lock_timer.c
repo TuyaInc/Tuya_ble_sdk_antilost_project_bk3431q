@@ -42,11 +42,11 @@ static void conn_param_update_outtime_cb(void* timer)
 /*********************************************************
 FN: 
 */
-void reset_outtime_cb_handler(void)
+void disconn_and_reset2_outtime_cb_handler(void)
 {
     app_port_device_reset();
 }
-static void reset_outtime_cb(void* timer)
+static void disconn_and_reset2_outtime_cb(void* timer)
 {
     tuya_ble_app_evt_send(APP_EVT_TIMER_1);
 }
@@ -73,12 +73,12 @@ static void bonding_conn_outtime_cb(void* timer)
 /*********************************************************
 FN: 
 */
-void reset_with_disconn_outtime_cb_handler(void)
+void disconn_and_reset_outtime_cb_handler(void)
 {
     app_port_ble_gap_disconnect();
-    lock_timer_start(LOCK_TIMER_RESET);
+    lock_timer_start(LOCK_TIMER_DISCONN_AND_RESET2);
 }
-static void reset_with_disconn_outtime_cb(void* timer)
+static void disconn_and_reset_outtime_cb(void* timer)
 {
     tuya_ble_app_evt_send(APP_EVT_TIMER_3);
 }
@@ -178,9 +178,9 @@ uint32_t lock_timer_creat(void)
 {
     uint32_t ret = 0;
     ret += app_port_timer_create(&lock_timer[LOCK_TIMER_CONN_PARAM_UPDATE], 1000, SUBLE_TIMER_SINGLE_SHOT, conn_param_update_outtime_cb);
-    ret += app_port_timer_create(&lock_timer[LOCK_TIMER_RESET], 1000, SUBLE_TIMER_SINGLE_SHOT, reset_outtime_cb);
+    ret += app_port_timer_create(&lock_timer[LOCK_TIMER_DISCONN_AND_RESET2], 1000, SUBLE_TIMER_SINGLE_SHOT, disconn_and_reset2_outtime_cb);
     ret += app_port_timer_create(&lock_timer[LOCK_TIMER_BONDING_CONN], 2000, SUBLE_TIMER_SINGLE_SHOT, bonding_conn_outtime_cb);
-    ret += app_port_timer_create(&lock_timer[LOCK_TIMER_RESET_WITH_DISCONN], 1000, SUBLE_TIMER_SINGLE_SHOT, reset_with_disconn_outtime_cb);
+    ret += app_port_timer_create(&lock_timer[LOCK_TIMER_DISCONN_AND_RESET], 1000, SUBLE_TIMER_SINGLE_SHOT, disconn_and_reset_outtime_cb);
     ret += app_port_timer_create(&lock_timer[LOCK_TIMER_APP_TEST_OUTTIME], APP_TEST_MODE_ENTER_OUTTIME_MS, SUBLE_TIMER_SINGLE_SHOT, app_test_outtime_cb);
     ret += app_port_timer_create(&lock_timer[LOCK_TIMER_APP_TEST_RESET_OUTTIME], 500, SUBLE_TIMER_SINGLE_SHOT, app_test_reset_outtime_cb);
     ret += app_port_timer_create(&lock_timer[LOCK_TIMER_ACTIVE_REPORT], 30000, SUBLE_TIMER_SINGLE_SHOT, app_active_report_outtime_cb);

@@ -521,16 +521,6 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\tuya_ble_sdk_demo\src\app\tuya_ble_sdk_demo\tuya_ble_app_ota.c</FilePath>
             </File>
-            <File>
-              <FileName>tuya_ble_app_product_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\tuya_ble_sdk_demo\src\app\tuya_ble_sdk_demo\tuya_ble_app_product_test.c</FilePath>
-            </File>
-            <File>
-              <FileName>tuya_ble_app_uart_module_handler.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\tuya_ble_sdk_demo\src\app\tuya_ble_sdk_demo\tuya_ble_app_uart_module_handler.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

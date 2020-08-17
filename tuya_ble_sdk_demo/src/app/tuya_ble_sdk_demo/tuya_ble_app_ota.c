@@ -111,9 +111,7 @@ static uint32_t app_ota_enter(void)
     suble_gap_conn_param_update(15, 30, 0, 5000);
 //    app_port_ble_conn_evt_ext();
     
-    tuya_ble_device_enter_critical();
     suble_flash_erase(APP_OTA_START_ADDR, APP_OTA_FILE_MAX_LEN/0x1000);
-    tuya_ble_device_exit_critical();
     
     return SUBLE_SUCCESS;
 }

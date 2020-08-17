@@ -193,12 +193,16 @@ static void tuya_ble_app_data_process(int32_t evt_id, void *data)
             suble_gpio_irq_handler(custom_data->value, custom_data->len);
         } break;
         
+        case APP_EVT_APP_TEST_PRE_PROCESS: {
+            factory_test_process(custom_data->value, custom_data->len);
+        } break;
+        
         case APP_EVT_TIMER_0: {
             conn_param_update_outtime_cb_handler();
         } break;
         
         case APP_EVT_TIMER_1: {
-            reset_outtime_cb_handler();
+            disconn_and_reset2_outtime_cb_handler();
         } break;
         
         case APP_EVT_TIMER_2: {
@@ -206,7 +210,7 @@ static void tuya_ble_app_data_process(int32_t evt_id, void *data)
         } break;
         
         case APP_EVT_TIMER_3: {
-            reset_with_disconn_outtime_cb_handler();
+            disconn_and_reset_outtime_cb_handler();
         } break;
         
         case APP_EVT_TIMER_4: {

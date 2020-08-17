@@ -33,6 +33,8 @@ PM: dp_id - defined in "lock_dp_parser.h"
 */
 uint32_t antilost_common_report(uint8_t dp_id, uint32_t data)
 {
+    memset(&g_rsp, 0, sizeof(lock_dp_t));
+    
     g_rsp.dp_id = dp_id;
     
     switch(dp_id)

@@ -138,7 +138,7 @@ uint32_t app_port_ble_sdk_init(tuya_ble_device_param_t * param_data);
 uint32_t app_port_ble_callback_queue_register(tuya_ble_callback_t cb);
 uint8_t app_port_ble_custom_event_send(tuya_ble_custom_evt_t evt);
 uint32_t app_port_uart_send_data(const uint8_t* buf,uint16_t size);
-void app_port_factory_test_process(uint8_t* p_in_data, uint16_t in_len, uint8_t* p_out_data, uint16_t* out_len);
+void app_port_factory_test_process(uint8_t* p_in_data, uint16_t in_len);
 void app_port_device_factory_reset(void);
  
 /*********************************************************  check  *********************************************************/

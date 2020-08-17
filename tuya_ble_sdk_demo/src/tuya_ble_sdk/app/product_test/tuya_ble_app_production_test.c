@@ -614,7 +614,7 @@ __TUYA_BLE_WEAK void tuya_ble_custom_app_production_test_process(uint8_t channel
 extern void tuya_ble_connect_monitor_timer_stop(void);
 void tuya_ble_app_production_test_process(uint8_t channel,uint8_t *p_in_data,uint16_t in_len)
 {
-    app_port_factory_test_process(p_in_data, in_len, NULL, NULL);
+    app_port_factory_test_process(p_in_data, in_len);
 //    uint8_t cmd = p_in_data[3];
 //    uint16_t data_len = (p_in_data[4]<<8) + p_in_data[5];
 //    uint8_t *data_buffer = p_in_data+6;

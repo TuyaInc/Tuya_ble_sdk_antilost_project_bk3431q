@@ -306,10 +306,10 @@ void suble_gpio_led_reverse(uint8_t pin)
 /*********************************************************
 FN: 
 */
-void suble_gpio_rled_blink(uint32_t count)
+void suble_gpio_rled_blink(uint32_t count, uint32_t ms)
 {
     suble_gpio_led_off(ANTILOCK_LED_RED_PIN);
-    suble_timer_start_0(SUBLE_TIMER102, 100, count*2);
+    suble_timer_start_0(SUBLE_TIMER102, ms, count*2);
 }
 
 /*********************************************************

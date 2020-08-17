@@ -74,9 +74,6 @@ void suble_timer_handler(ke_msg_id_t timer_id)
             case SUBLE_TIMER108: {
             } break;
             
-            case SUBLE_TIMER109: {
-            } break;
-            
             default: {
             } break;
         }
@@ -350,7 +347,9 @@ FN: 启动本地时间戳
 */
 void suble_local_timer_start(void)
 {
-    suble_rtc_start();
+//    suble_rtc_start();
+    //系统定时器，用于在不广播的时候喂狗
+    suble_timer_start_0(SUBLE_TIMER109, 1000, SUBLE_TIMER_COUNT_ENDLESS);
 }
 
 /*********************************************************

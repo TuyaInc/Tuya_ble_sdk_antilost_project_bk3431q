@@ -179,11 +179,6 @@ void appm_start_advertising(void)
         ke_msg_send(cmd);
 	 	SUBLE_PRINTF("start advertising");
 
-        //启动看门狗
-        //0x3FFF*250us = 4 095 750us = 4s
-        //0x7FFF*250us = 8 191 750us = 8s
-        wdt_enable(WATCH_DOG_COUNT);
-
         //设置任务状态
         ke_state_set(TASK_APP, APPM_ADVERTISING);	
     }
@@ -205,9 +200,6 @@ void appm_stop_advertising(void)
         //发送message
         ke_msg_send(cmd);
 	 	SUBLE_PRINTF("appm stop advertising");
-
-        //关闭看门狗
-        wdt_disable();
 
         //设置任务状态
         ke_state_set(TASK_APP, APPM_READY);

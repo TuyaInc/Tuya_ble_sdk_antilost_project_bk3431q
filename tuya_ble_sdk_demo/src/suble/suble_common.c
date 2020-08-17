@@ -1,4 +1,5 @@
 #include "suble_common.h"
+#include "app_test.h"
 
 
 
@@ -37,7 +38,6 @@ void suble_init_func(uint8_t location)
     switch(location)
     {
         case 0: {
-            suble_gpio_init();
             suble_battery_init();
         } break;
         
@@ -47,10 +47,24 @@ void suble_init_func(uint8_t location)
         case 2: {
             tuya_ble_app_init();
             
-            if(tuya_ble_connect_status_get() == BONDING_UNCONN) {
+            app_test_version_8_handler();
+            
+            if(is_app_test_finish()) {
+                if(tuya_ble_connect_status_get() == BONDING_UNCONN) {
+                    g_adv_param.adv_interval_min = SUBLE_ADV_INTERVAL_MIN;
+                    g_adv_param.adv_interval_max = SUBLE_ADV_INTERVAL_MAX;
+                    suble_adv_start();
+                }
+            }
+            else {
+                g_adv_param.adv_interval_min = 20;
+                g_adv_param.adv_interval_max = 20;
                 suble_adv_start();
             }
+            
             suble_test_func();
+            
+            suble_gpio_init();
         } break;
         
         default: {

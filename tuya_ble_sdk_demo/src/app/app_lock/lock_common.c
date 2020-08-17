@@ -33,7 +33,7 @@ void lock_common_init(void)
 {
     app_port_nv_init();
     
-//    app_port_local_clock_start();
+    app_port_local_clock_start();
     
     lock_timer_creat();
     
@@ -49,7 +49,7 @@ void lock_factory_handler(void)
     
     lock_flash_erease_all();
     
-    lock_timer_start(LOCK_TIMER_RESET_WITH_DISCONN);
+    lock_timer_start(LOCK_TIMER_DISCONN_AND_RESET);
 }
 
 

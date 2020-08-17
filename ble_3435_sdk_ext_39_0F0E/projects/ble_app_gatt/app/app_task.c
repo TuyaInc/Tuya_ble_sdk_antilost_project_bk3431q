@@ -441,9 +441,6 @@ static int gapc_disconnect_ind_handler(ke_msg_id_t const msgid,
     
 	//进入就绪状态
 	ke_state_set(TASK_APP, APPM_READY);
-
-    //关闭看门狗
-    wdt_disable();
     
 	//重启广播
 	suble_adv_start();

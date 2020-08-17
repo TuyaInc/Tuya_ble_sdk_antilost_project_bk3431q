@@ -32,9 +32,9 @@ extern "C"
 typedef enum
 {
     LOCK_TIMER_CONN_PARAM_UPDATE = 0x00,
-    LOCK_TIMER_RESET,
+    LOCK_TIMER_DISCONN_AND_RESET2,
     LOCK_TIMER_BONDING_CONN,
-    LOCK_TIMER_RESET_WITH_DISCONN,
+    LOCK_TIMER_DISCONN_AND_RESET,
     LOCK_TIMER_APP_TEST_OUTTIME,
     LOCK_TIMER_APP_TEST_RESET_OUTTIME,
     LOCK_TIMER_ACTIVE_REPORT,
@@ -56,9 +56,9 @@ typedef enum
  * EXTERNAL FUNCTIONS
  */
 void conn_param_update_outtime_cb_handler(void);
-void reset_outtime_cb_handler(void);
+void disconn_and_reset2_outtime_cb_handler(void);
 void bonding_conn_outtime_cb_handler(void);
-void reset_with_disconn_outtime_cb_handler(void);
+void disconn_and_reset_outtime_cb_handler(void);
 void conn_monitor_outtime_cb_handler(void);
 void app_test_outtime_cb_handler(void);
 void app_test_reset_outtime_cb_handler(void);

@@ -141,6 +141,7 @@ void app_ibeacon_start(void)
     if (ke_state_get(TASK_APP) == APPM_ADVERTISING) {
         if(!s_ibeacon_running_flag)
         {
+            s_ibeacon_running_flag = true;
             //改变广播间隔
             g_adv_param.adv_interval_min = APP_IBEACON_ADV_INTERVAL;
             g_adv_param.adv_interval_max = APP_IBEACON_ADV_INTERVAL;
@@ -156,7 +157,6 @@ void app_ibeacon_start(void)
             //启动定时器
             lock_timer_start(LOCK_TIMER_IBEACON);
             
-            s_ibeacon_running_flag = true;
             APP_DEBUG_PRINTF("app_ibeacon_start");
         }
         else {
@@ -174,7 +174,7 @@ FN:
 void app_ibeacon_stop(void)
 {
     if(s_ibeacon_running_flag) {
-        if (ke_state_get(TASK_APP) == APPM_ADVERTISING)
+//        if (ke_state_get(TASK_APP) == APPM_ADVERTISING)
         {
             //恢复广播间隔
             g_adv_param.adv_interval_min = SUBLE_ADV_INTERVAL_MIN;
@@ -191,9 +191,9 @@ void app_ibeacon_stop(void)
             s_ibeacon_running_flag = false;
             APP_DEBUG_PRINTF("app_ibeacon_stop");
         }
-        else {
-            APP_DEBUG_PRINTF("device is not advertising");
-        }
+//        else {
+//            APP_DEBUG_PRINTF("device is not advertising");
+//        }
     }
     else {
         APP_DEBUG_PRINTF("app_ibeacon is not running");

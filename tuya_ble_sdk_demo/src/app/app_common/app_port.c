@@ -329,9 +329,9 @@ uint32_t app_port_uart_send_data(const uint8_t* buf,uint16_t size)
 /*********************************************************
 FN: 
 */
-void app_port_factory_test_process(uint8_t* p_in_data, uint16_t in_len, uint8_t* p_out_data, uint16_t* out_len)
+void app_port_factory_test_process(uint8_t* p_in_data, uint16_t in_len)
 {
-    factory_test_process(p_in_data, in_len, p_out_data, out_len);
+    tuya_ble_app_evt_send_with_data(APP_EVT_APP_TEST_PRE_PROCESS, p_in_data, in_len);
 }
 
 /*********************************************************

@@ -91,6 +91,15 @@ static void suble_key_state_handler(uint8_t state)
                     lock_play_music(MUSIC_MODE_ONCE, MUSIC_NOTIFY_2);
                 }
             }
+            
+            //²ú²â
+            extern bool app_test_peripheral_key_flag;
+            if(app_test_peripheral_key_flag) {
+                app_test_peripheral_key_flag = false;
+                
+                uint8_t tmp_buf[] = "{\"keyID\":0";
+                app_test_sub_rsp(APP_TEST_SUB_CMD_KEY, tmp_buf, strlen((void*)tmp_buf));
+            }
         } break;
         
         case KEY_STATE_PRESSED_2: {

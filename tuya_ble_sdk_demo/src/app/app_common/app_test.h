@@ -40,6 +40,13 @@ extern "C"
 #define APP_TEST_CMD_WRITE_HID            0x07
 #define APP_TEST_CMD_RSSI_TEST            0x08
 #define APP_TEST_CMD_WRITE_OEM_INFO       0x09
+#define APP_TEST_CMD_READ_MAC             0x13
+#define APP_TEST_CMD_EXIT                 0x14
+
+#define APP_TEST_CMD_PERIPHERALS          0xF0
+#define APP_TEST_SUB_CMD_LED              0x0001
+#define APP_TEST_SUB_CMD_KEY              0x0003
+#define APP_TEST_SUB_CMD_BUZZER           0x0018
 
 #define APP_TEST_MODE_ENTER_OUTTIME_MS    500
 
@@ -85,17 +92,19 @@ typedef struct
 /*********************************************************************
  * EXTERNAL VARIABLES
  */
-extern volatile bool s_app_test_mode_enter_outtime_flag;
 
 /*********************************************************************
  * EXTERNAL FUNCTIONS
  */
 void app_test_init(void);
+bool is_app_test_finish(void);
 void app_test_pre_process(uint8_t cmd_id, uint8_t* buf, uint16_t size);
 void app_test_outtime_handler(void);
+void app_test_sub_rsp(uint16_t sub_cmd, uint8_t* buf, uint16_t size);
+void app_test_version_8_handler(void);
 
 /*********************************************************  factory_test cmd distribution  *********************************************************/
-void factory_test_process(uint8_t* p_in_data, uint16_t in_len, uint8_t* p_out_data, uint16_t* out_len);
+void factory_test_process(uint8_t* p_in_data, uint16_t in_len);
 
 #ifdef __cplusplus
 }

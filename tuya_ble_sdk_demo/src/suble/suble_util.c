@@ -282,7 +282,7 @@ uint32_t suble_util_str_hexarray2hexstr(uint8_t* hexarray, uint32_t size, uint8_
         hexstr[idx*2] = suble_util_str_int2hexchar(high);
         hexstr[idx*2+1] = suble_util_str_int2hexchar(low);
 	}
-    hexstr[idx*2] = '0';
+//    hexstr[idx*2] = '0';//防止数组访问越界
 	return SUBLE_SUCCESS;
 }
 
