@@ -38,15 +38,15 @@ extern "C"
 #define TUYA_DEVICE_AUTH_KEY    "THdJeEuV1WySdddcuEbEpTiYxTWjhke0"  //32Byte
 
 #define TUYA_DEVICE_FIR_NAME    "tuya_ble_antilost_common_bk3431q"  //固件标识名
-#define TUYA_DEVICE_FVER_NUM    0x00000009                          //固件版本
+#define TUYA_DEVICE_FVER_NUM    0x00000100                          //固件版本
 #define TUYA_DEVICE_HVER_NUM    0x00000100                          //硬件版本
-#define TUYA_DEVICE_FVER_STR    "0.9"                               //固件版本str
+#define TUYA_DEVICE_FVER_STR    "1.0"                               //固件版本str
 #define TUYA_DEVICE_HVER_STR    "1.0"                               //硬件版本str
 
 //蓝牙参数
 #define TUYA_ADV_INTERVAL       1022.5                              //广播间隔, 范围: 20~10240ms, 推荐值: (152.5), (1022.5)
-#define TUYA_CONN_INTERVAL_MIN  585                                 //连接间隔, 范围: 7.5~4000ms
-#define TUYA_CONN_INTERVAL_MAX  600                                 //连接间隔, 范围: 7.5~4000ms
+#define TUYA_CONN_INTERVAL_MIN  180                                 //连接间隔, 范围: 7.5~4000ms
+#define TUYA_CONN_INTERVAL_MAX  200                                 //连接间隔, 范围: 7.5~4000ms
 
 //event id
 typedef enum

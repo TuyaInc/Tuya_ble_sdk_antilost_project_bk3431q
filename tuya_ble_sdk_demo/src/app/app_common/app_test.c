@@ -62,6 +62,9 @@ void app_test_init(void)
     if(!is_app_test_finish()) {
         lock_timer_start(LOCK_TIMER_APP_TEST_OUTTIME);
     }
+    else {
+        g_system_sleep = true;
+    }
 }
 
 /*********************************************************
