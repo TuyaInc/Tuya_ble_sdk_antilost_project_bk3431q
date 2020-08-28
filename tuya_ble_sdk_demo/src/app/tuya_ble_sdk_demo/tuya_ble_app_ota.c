@@ -529,19 +529,24 @@ static uint32_t app_ota_end_handler(uint8_t* cmd, uint16_t cmd_size, tuya_ble_ot
 FN: 
 */
 tuya_ble_timer_t app_ota_timer;
+tuya_ble_timer_t app_ota_timer2;
+
+static void reset_with_disconn_outtime_cb2(tuya_ble_timer_t timer)
+{
+    suble_system_reset();
+}
 
 static void reset_with_disconn_outtime_cb(tuya_ble_timer_t timer)
 {
     suble_gap_disconnect(0, 0x16);
-    suble_system_reset();
 }
-
 
 static void app_ota_timer_creat_and_start(void)
 {
-    tuya_ble_timer_create(&app_ota_timer, 2000, TUYA_BLE_TIMER_SINGLE_SHOT, reset_with_disconn_outtime_cb);
+    tuya_ble_timer_create(&app_ota_timer, 1000, TUYA_BLE_TIMER_SINGLE_SHOT, reset_with_disconn_outtime_cb);
     tuya_ble_timer_start(app_ota_timer);
-    
+    tuya_ble_timer_create(&app_ota_timer2, 2000, TUYA_BLE_TIMER_SINGLE_SHOT, reset_with_disconn_outtime_cb2);
+    tuya_ble_timer_start(app_ota_timer2);
 }
 
 

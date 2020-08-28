@@ -38,9 +38,9 @@ extern "C"
 #define TUYA_DEVICE_AUTH_KEY    "THdJeEuV1WySdddcuEbEpTiYxTWjhke0"  //32Byte
 
 #define TUYA_DEVICE_FIR_NAME    "tuya_ble_antilost_common_bk3431q"  //固件标识名
-#define TUYA_DEVICE_FVER_NUM    0x00000100                          //固件版本
+#define TUYA_DEVICE_FVER_NUM    0x00000101                          //固件版本
 #define TUYA_DEVICE_HVER_NUM    0x00000100                          //硬件版本
-#define TUYA_DEVICE_FVER_STR    "1.0"                               //固件版本str
+#define TUYA_DEVICE_FVER_STR    "1.1"                               //固件版本str
 #define TUYA_DEVICE_HVER_STR    "1.0"                               //硬件版本str
 
 //蓝牙参数
